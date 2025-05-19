@@ -43,7 +43,7 @@ def get_all_words_count():
 @app.route("/convert")
 def convert_to_script():
     query = request.args.get("q", "").lower()
-    chararacters = query.split("")
+    chararacters = list(query)
     charPath = "https://zhyov.github.io/Eshakap/assets/char/"
     consonants = ["p", "b", "f", "v", "w", "k", "g", "t", "d", "đ", "z", "ž", "h", "j", "l", "m", "n", "ň", "r", "s", "š", "c", "č", "ç"]
     vowels = ["a", "ä", "ą", "i", "į", "o", "ö"]
@@ -53,7 +53,10 @@ def convert_to_script():
 
     for index, char in enumerate(chararacters):
         prev = chararacters[index - 1]
-        next = chararacters[index + 1]
+        try:
+            next = chararacters[index + 1]
+        except IndexError:
+            next = None
 
         if char in vowels and prev not in consonants:
             final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}aläp.svg" })
@@ -79,7 +82,7 @@ def convert_to_script():
     if len(final) > 0:
         eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
 
-    return jsonify(eshakap)
+    return eshakap
 
 if __name__ == "__main__":
     app.run()
