@@ -50,34 +50,38 @@ def convert_to_script():
     eshakap = []
     final = []
     count = 0
+    skip = False
 
     for index, char in enumerate(chararacters):
-        prev = chararacters[index - 1]
-        try:
-            next = chararacters[index + 1]
-        except IndexError:
-            next = None
+        if not skip:
+            prev = chararacters[index - 1]
+            try:
+                next = chararacters[index + 1]
+            except IndexError:
+                next = None
 
-        if char in vowels and prev not in consonants:
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}aläp.svg" })
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
-            count += 2
-        elif char in consonants and (not next or next in consonants):
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}∅.svg" })
-            count += 2
-        elif char in consonants and next in vowels:
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{next}.svg" })
-            count += 2
-            index += 1
+            if char in vowels and prev not in consonants:
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}aläp.svg" })
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
+                count += 2
+            elif char in consonants and (not next or next in consonants):
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}∅.svg" })
+                count += 2
+            elif char in consonants and next in vowels:
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{next}.svg" })
+                count += 2
+                skip = True
+            else:
+                final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
+                count += 2
+
+            if len(final) == 2:
+                eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
+                final = []
         else:
-            final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
-            count += 2
-
-        if len(final) == 2:
-            eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
-            final = []
+            skip = not skip
     
     if len(final) > 0:
         eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
