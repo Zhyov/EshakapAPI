@@ -21,19 +21,22 @@ def home():
 def search_words():
     query = request.args.get('q', '').lower()
 
+    count = 0
     results = []
     if query:
         for word in load_words():
             if query in word['word'].lower() or any(query in meaning.lower() for meaning in word['meaning']):
                 word["id"] = str(uuid.uuid4())
                 results.append(word)
+                count += 1
     else:
         words = load_words()
         for word in words:
             word["id"] = str(uuid.uuid4())
             results.append(word)
+            count = len(words)
 
-    return jsonify(results)
+    return jsonify(results, count)
 
 if __name__ == '__main__':
     app.run()
