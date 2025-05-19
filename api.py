@@ -40,7 +40,7 @@ def get_all_words_count():
     words = load_words()
     return jsonify({"max": len(words)})
 
-@app.route("convert")
+@app.route("/convert")
 def convert_to_script():
     query = request.args.get("q", "").lower()
     chararacters = query.split("")
