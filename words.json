@@ -1,0 +1,600 @@
+[
+    {
+        "word": "ja",
+        "meaning": [
+            "(first person neutral pronoun)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ti",
+        "meaning": [
+            "(second person neutral pronoun)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "on",
+        "meaning": [
+            "(third person masculine pronoun)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ona",
+        "meaning": [
+            "(third person feminine pronoun)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ono",
+        "meaning": [
+            "(third person neutral pronoun)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "čo",
+        "meaning": [
+            "(question)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ipram",
+        "meaning": [
+            "welcome"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "prim",
+        "meaning": [
+            "hello (informal)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "pribän",
+        "meaning": [
+            "hello (formal)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ča",
+        "meaning": [
+            "bye (informal)"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "äta",
+        "meaning": [
+            "this"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ätat",
+        "meaning": [
+            "that"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "da",
+        "meaning": [
+            "yes"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "nä",
+        "meaning": [
+            "no"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "sa",
+        "meaning": [
+            "with"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "nas",
+        "meaning": [
+            "of"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "vä",
+        "meaning": [
+            "to"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "na",
+        "meaning": [
+            "about"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "gät",
+        "meaning": [
+            "because"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "tįk",
+        "meaning": [
+            "every"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "tąs",
+        "meaning": [
+            "but"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "i",
+        "meaning": [
+            "and"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "o",
+        "meaning": [
+            "or"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "fa",
+        "meaning": [
+            "in"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "nö",
+        "meaning": [
+            "on"
+        ],
+        "type": "general"
+    },
+    {
+        "word": "ök",
+        "meaning": [
+            "name"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "šmär",
+        "meaning": [
+            "country"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "göš",
+        "meaning": [
+            "cat"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "zavk",
+        "meaning": [
+            "dog"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "hocą",
+        "meaning": [
+            "horse"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "tacö",
+        "meaning": [
+            "non-Lutinian"
+        ],
+        "type": "special"
+    },
+    {
+        "word": "šnt",
+        "meaning": [
+            "to know",
+            "to understand"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "mkr",
+        "meaning": [
+            "to enjoy",
+            "fun"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "tkp",
+        "meaning": [
+            "to comunicate",
+            "to say"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "fsn",
+        "meaning": [
+            "to humanize",
+            "people"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "dtg",
+        "meaning": [
+            "to travel (unmotorized)",
+            "to move (ground)",
+            "to walk"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "gds",
+        "meaning": [
+            "to be positive",
+            "good"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "jdn",
+        "meaning": [
+            "to exist",
+            "to be"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "blr",
+        "meaning": [
+            "to whiten",
+            "white"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "kmr",
+        "meaning": [
+            "to digest (liquid or solid)"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "ňzc",
+        "meaning": [
+            "to feel",
+            "state (condition)"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "prl",
+        "meaning": [
+            "to be ill",
+            "disease"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "vbd",
+        "meaning": [
+            "to like (platonically)",
+            "to admire"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "đnh",
+        "meaning": [
+            "to command",
+            "to order"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "šgš",
+        "meaning": [
+            "to think",
+            "thought"
+        ],
+        "type": "replaceable"
+    },
+    {
+        
+        "word": "swl",
+        "meaning": [
+            "to animalize",
+            "animal"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "thš",
+        "meaning": [
+            "to attack",
+            "killer",
+            "crime"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "bcd",
+        "meaning": [
+            "to like (taste)",
+            "tasty"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "gvz",
+        "meaning": [
+            "to like (appearance)",
+            "beautiful"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "mwt",
+        "meaning": [
+            "to cheat (competitive)",
+            "unfair"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "jwh",
+        "meaning": [
+            "to be powerful (socially)",
+            "ruler"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "lfd",
+        "meaning": [
+            "to move (sky)",
+            "to fly"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "ghv",
+        "meaning": [
+            "to build",
+            "to construct",
+            "to make"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "ňjk",
+        "meaning": [
+            "to settle",
+            "place",
+            "land"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "cgž",
+        "meaning": [
+            "to unite",
+            "united"
+        ],
+        "type": "replaceable"
+    },
+    { 
+        "word": "tçd",
+        "meaning": [
+            "to be noble",
+            "nobility"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "swv",
+        "meaning": [
+            "to free",
+            "liberty"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "đňd",
+        "meaning": [
+            "to secure",
+            "to protect",
+            "to defend"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "cžw",
+        "meaning": [
+            "to respect",
+            "important"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "çnz",
+        "meaning": [
+            "light (weight)"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "žlš",
+        "meaning": [
+            "heavy (weight)"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "bčc",
+        "meaning": [
+            "to move (liquid)",
+            "to swim"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "čvp",
+        "meaning": [
+            "to nationalize",
+            "nation"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "wrc",
+        "meaning": [
+            "to train",
+            "to exercise"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "lňz",
+        "meaning": [
+            "to view",
+            "to search",
+            "reconnaissance",
+            "eye"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "vtr",
+        "meaning": [
+            "to observe",
+            "to view (in detail)"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "mhň",
+        "meaning": [
+            "to automate",
+            "machine"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "dzt",
+        "meaning": [
+            "bullet",
+            "caliber"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "vmg",
+        "meaning": [
+            "to advance (technology)",
+            "to be powerful"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "vzk",
+        "meaning": [
+            "to point",
+            "dot"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "klt",
+        "meaning": [
+            "to want",
+            "to need"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "vzk",
+        "meaning": [
+            "to point",
+            "dot"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "šlg",
+        "meaning": [
+            "star",
+            "celestial body"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "cžš",
+        "meaning": [
+            "to write",
+            "script"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "bmd",
+        "meaning": [
+            "to darken",
+            "black"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "sfž",
+        "meaning": [
+            "city",
+            "town"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "đzš",
+        "meaning": [
+            "to be first",
+            "main"
+        ],
+        "type": "replaceable"
+    },
+    {
+        "word": "mjç",
+        "meaning": [
+            "word",
+            "character (diminutive)"
+        ],
+        "type": "replaceable"
+    }
+]
