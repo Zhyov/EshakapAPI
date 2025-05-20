@@ -1,17 +1,39 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
-import uuid
-import json
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
+from models import db, Word
+import uuid, os, requests
 
-app = Flask(__name__)
+load_dotenv()
+app = Flask(__name__, instance_relative_config=True)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
+db.init_app(app)
 
-def load_words():
+SUPABASE_PROJECT_ID = "sblovettyyzfrvbiroiz"
+SUPABASE_JWT_SECRET = os.environ.get("SUPABASE_JWT_SECRET")
+
+def verify_token(authHeader):
+    if not authHeader or not authHeader.startswith("Bearer "):
+        return None
+    token = authHeader.split(" ")[1]
+
     try:
-        with open("words.json", "r", encoding="utf-8") as file:
-            return json.load(file)
-    except FileNotFoundError:
-        return []
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "apikey": SUPABASE_JWT_SECRET
+        }
+        response = requests.get(
+            f"https://{SUPABASE_PROJECT_ID}.supabase.co/auth/v1/user",
+            headers=headers
+        )
+        if response.status_code == 200:
+            return response.json()
+    except Exception:
+        pass
+
 
 @app.route("/")
 def home():
@@ -21,35 +43,47 @@ def home():
 def fetch_words():
     query = request.args.get("q", "").lower()
 
-    results = []
+    words = Word.query.all()
+    result = []
     if query:
-        for word in load_words():
-            if query in word["word"].lower() or any(query in meaning.lower() for meaning in word["meaning"]):
-                word["id"] = str(uuid.uuid4())
-                results.append(word)
-    else:
-        words = load_words()
         for word in words:
-            word["id"] = str(uuid.uuid4())
-            results.append(word)
+            if query in word.word.lower() or any(query in meaning.lower() for meaning in word.meaning):
+                result.append({
+                    "id": word.id,
+                    "word": word.word,
+                    "meaning": word.meaning,
+                    "type": word.type
+                })
+    else:
+        for word in words:
+            result.append({
+                "id": word.id,
+                "word": word.word,
+                "meaning": word.meaning,
+                "type": word.type
+            })
 
-    return jsonify(results)
+    return jsonify(result)
 
 @app.route("/word")
 def get_word():
     query = request.args.get("q", "").lower()
 
     result = []
-    for word in load_words():
-        if query == word["word"].lower():
-            word["id"] = str(uuid.uuid4())
-            result.append(word)
+    for word in Word.query.all():
+        if query == word.word.lower():
+            result.append({
+                "id": word.id,
+                "word": word.word,
+                "meaning": word.meaning,
+                "type": word.type
+            })
     
     return jsonify(result)
 
 @app.route("/max")
 def get_all_words_count():
-    words = load_words()
+    words = Word.query.all()
     return jsonify({"max": len(words)})
 
 @app.route("/convert")
@@ -61,7 +95,6 @@ def convert_to_script():
     vowels = ["a", "ä", "ą", "i", "į", "o", "ö"]
     eshakap = []
     final = []
-    count = 0
     i = 0
 
     while i < len(characters):
@@ -99,5 +132,34 @@ def script_order():
 
     return jsonify(order)
 
+@app.route("/add", methods=["POST"])
+def add_word():
+    user = verify_token(request.headers.get("Authorization"))
+    if not user:
+        abort(401, "Unauthorized")
+
+    data = request.get_json()
+    word = data.get("word", "").strip()
+    meaning = data.get("meaning", [])
+    type = data.get("type", "")
+
+    if not word or not isinstance(meaning, list) or not type:
+        return jsonify({"error": "Invalid data"})
+
+    newWord = Word(
+        id=str(uuid.uuid4()),
+        word=word,
+        meaning=meaning,
+        type=type
+    )
+
+    db.session.add(newWord)
+    db.session.commit()
+
+    return jsonify({"message": "Word added"})
+
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+    
     app.run()
