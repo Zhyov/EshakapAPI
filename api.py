@@ -17,8 +17,8 @@ def load_words():
 def home():
     return jsonify({"message": "Connected to Eshakap API"})
 
-@app.route("/get")
-def search_words():
+@app.route("/fetch")
+def fetch_words():
     query = request.args.get("q", "").lower()
 
     results = []
@@ -34,6 +34,18 @@ def search_words():
             results.append(word)
 
     return jsonify(results)
+
+@app.route("/word")
+def get_word():
+    query = request.args.get("q", "").lower()
+
+    result = []
+    for word in load_words():
+        if query == word["word"].lower():
+            word["id"] = str(uuid.uuid4())
+            result.append(word)
+    
+    return jsonify(result)
 
 @app.route("/max")
 def get_all_words_count():
