@@ -79,7 +79,13 @@ def convert_to_script():
     if len(final) > 0:
         eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
 
-    return eshakap
+    return jsonify(eshakap)
+
+@app.route("/order")
+def script_order():
+    order = ["a", "ä", "ą", "p", "b", "f", "v", "w", "k", "g", "t", "d", "đ", "z", "ž", "i", "į", "h", "j", "l", "m", "n", "ň", "o", "ö", "r", "s", "š", "c", "č", "ç"]
+
+    return jsonify(order)
 
 if __name__ == "__main__":
     app.run()
