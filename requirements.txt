@@ -1,7 +1,6 @@
 flask
 flask_cors
 flask_sqlalchemy
-sqlalchemy
 psycopg2-binary
 python-dotenv
 gunicorn

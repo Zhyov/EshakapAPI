@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
-from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from models import db, Word
 import uuid, os, requests
