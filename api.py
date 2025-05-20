@@ -75,7 +75,7 @@ def convert_to_script():
                 skip = True
             else:
                 final.append({ "id": f"{str(uuid.uuid4())}", "path": f"{charPath}{char}.svg" })
-                count += 2
+                count += 1
 
             if len(final) == 2:
                 eshakap.append({ "id": f"{str(uuid.uuid4())}", "syllable": final })
