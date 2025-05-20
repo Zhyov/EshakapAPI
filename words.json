@@ -596,5 +596,40 @@
             "character (diminutive)"
         ],
         "type": "replaceable"
+    },
+    {
+        "word": "amadi",
+        "meaning": [
+            "machine gun"
+        ],
+        "type": "combination"
+    },
+    {
+        "word": "äšakap",
+        "meaning": [
+            "language of knowledge"
+        ],
+        "type": "combination"
+    },
+    {
+        "word": "aditątä",
+        "meaning": [
+            "army"
+        ],
+        "type": "combination"
+    },
+    {
+        "word": "abičątä",
+        "meaning": [
+            "navy"
+        ],
+        "type": "combination"
+    },
+    {
+        "word": "alifątä",
+        "meaning": [
+            "air force"
+        ],
+        "type": "combination"
     }
 ]
