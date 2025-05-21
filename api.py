@@ -51,7 +51,9 @@ def fetch_words():
                     "id": word.id,
                     "word": word.word,
                     "meaning": word.meaning,
-                    "type": word.type
+                    "type": word.type,
+                    "phonetic": word.phonetic,
+                    "combination": word.combination
                 })
     else:
         for word in words:
@@ -59,7 +61,9 @@ def fetch_words():
                 "id": word.id,
                 "word": word.word,
                 "meaning": word.meaning,
-                "type": word.type
+                "type": word.type,
+                "phonetic": word.phonetic,
+                "combination": word.combination
             })
 
     return jsonify(result)
@@ -75,7 +79,9 @@ def get_word():
                 "id": word.id,
                 "word": word.word,
                 "meaning": word.meaning,
-                "type": word.type
+                "type": word.type,
+                "phonetic": word.phonetic,
+                "combination": word.combination
             })
     
     return jsonify(result)

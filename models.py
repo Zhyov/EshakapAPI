@@ -8,3 +8,5 @@ class Word(db.Model):
     word = db.Column(db.String, nullable=False)
     meaning = db.Column(JSONB, nullable=False)
     type = db.Column(db.String, nullable=False)
+    phonetic = db.Column(db.String, nullable=False)
+    combination = db.Column(JSONB, nullable=True)
