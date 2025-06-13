@@ -33,10 +33,13 @@ def verify_token(authHeader):
     except Exception:
         pass
 
-
 @app.route("/")
 def home():
     return jsonify({"message": "Connected to Eshakap API"})
+
+@app.route("/names")
+def get_names():
+    return jsonify([word.word for word in Word.query.all()])
 
 @app.route("/fetch")
 def fetch_words():
@@ -88,8 +91,7 @@ def get_word():
 
 @app.route("/max")
 def get_all_words_count():
-    words = Word.query.all()
-    return jsonify({"max": len(words)})
+    return jsonify({"max": len(Word.query.all())})
 
 @app.route("/convert")
 def convert_to_script():
