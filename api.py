@@ -14,6 +14,25 @@ db.init_app(app)
 SUPABASE_PROJECT_ID = "sblovettyyzfrvbiroiz"
 SUPABASE_JWT_SECRET = os.environ.get("SUPABASE_JWT_SECRET")
 
+filterPattern = {
+    "0": [],
+    "1": ["general"],
+    "2": ["special"],
+    "3": ["general", "special"],
+    "4": ["replaceable"],
+    "5": ["general", "replaceable"],
+    "6": ["special", "replaceable"],
+    "7": ["general", "special", "replaceable"],
+    "8": ["combination"],
+    "9": ["general", "combination"],
+    "a": ["special", "combination"],
+    "b": ["general", "special", "combination"],
+    "c": ["replaceable", "combination"],
+    "d": ["general", "replaceable", "combination"],
+    "e": ["special", "replaceable", "combination"],
+    "f": ["general", "special", "replaceable", "combination"]
+}
+
 def verify_token(authHeader):
     if not authHeader or not authHeader.startswith("Bearer "):
         return None
@@ -44,12 +63,36 @@ def get_names():
 @app.route("/fetch")
 def fetch_words():
     query = request.args.get("q", "").lower()
+    filter = request.args.get("f", "")
 
     words = Word.query.all()
     result = []
-    if query:
+    if query and filter:
         for word in words:
             if query in word.word.lower() or any(query in meaning.lower() for meaning in word.meaning):
+                if word.type.lower() in filterPattern[filter]:
+                    result.append({
+                        "id": word.id,
+                        "word": word.word,
+                        "meaning": word.meaning,
+                        "type": word.type,
+                        "phonetic": word.phonetic,
+                        "combination": word.combination
+                    })
+    elif query:
+        for word in words:
+            if query in word.word.lower() or any(query in meaning.lower() for meaning in word.meaning):
+                result.append({
+                    "id": word.id,
+                    "word": word.word,
+                    "meaning": word.meaning,
+                    "type": word.type,
+                    "phonetic": word.phonetic,
+                    "combination": word.combination
+                })
+    elif filter:
+        for word in words:
+            if word.type.lower() in filterPattern[filter]:
                 result.append({
                     "id": word.id,
                     "word": word.word,
